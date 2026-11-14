@@ -78,7 +78,8 @@ export function Workspace() {
   const [subtitles, setSubtitles] = useState(true);
 
   // Release the local preview URL when the file changes or the section unmounts.
-  useEffect(() => () => { if (video) URL.revokeObjectURL(video.url); }, [video]);
+  const videoUrl = video?.url;
+  useEffect(() => () => { if (videoUrl) URL.revokeObjectURL(videoUrl); }, [videoUrl]);
 
   // Look up YouTube details shortly after the user stops typing.
   useEffect(() => {
