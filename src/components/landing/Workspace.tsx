@@ -83,8 +83,14 @@ export function Workspace() {
 
   // Look up YouTube details shortly after the user stops typing.
   useEffect(() => {
-    if (!url.trim()) return setYt({ status: "idle" });
-    if (!parseYouTubeId(url)) return setYt({ status: "error", error: "Paste a full YouTube video link." });
+    if (!url.trim()) {
+      setYt({ status: "idle" });
+      return;
+    }
+    if (!parseYouTubeId(url)) {
+      setYt({ status: "error", error: "Paste a full YouTube video link." });
+      return;
+    }
     let cancelled = false;
     setYt({ status: "loading" });
     const t = setTimeout(async () => {
@@ -119,8 +125,14 @@ export function Workspace() {
   const hasSource = yt.status === "ready" || !!video;
 
   function generate() {
-    if (!hasSource) return toast.error("Add a YouTube link or upload a video first.");
-    if (durationError || clipsError) return toast.error("Fix the highlighted settings first.");
+    if (!hasSource) {
+      toast.error("Add a YouTube link or upload a video first.");
+      return;
+    }
+    if (durationError || clipsError) {
+      toast.error("Fix the highlighted settings first.");
+      return;
+    }
     const durLabel =
       duration === "custom" ? `${customDuration}s` : DURATION_PRESETS.find((d) => d.id === duration)?.label;
     const count = clipCount === "custom" ? customClips : clipCount;
