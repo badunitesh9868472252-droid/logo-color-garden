@@ -55,7 +55,7 @@ export function EditingStyles() {
         <div className="mt-14 grid grid-cols-2 gap-4 md:grid-cols-3">
           {styles.map((s) => (
             <div key={s.name} className="overflow-hidden rounded-2xl border border-border bg-card shadow-card">
-              <div className="flex h-32 items-center justify-center bg-gradient-night/60 bg-aura px-4 text-center text-foreground">
+              <div className="flex h-32 items-center justify-center bg-elevated bg-aura px-4 text-center text-foreground">
                 {s.sample}
               </div>
               <p className="border-t border-border px-4 py-3 text-sm font-medium">{s.name}</p>
