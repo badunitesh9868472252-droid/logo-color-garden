@@ -10,7 +10,7 @@ export function SectionHeading({
   eyebrow: string;
   title: ReactNode;
   description?: string;
-  className?: string;
+  className?: string | undefined;
 }) {
   return (
     <div className={cn("mx-auto max-w-2xl text-center", className)}>

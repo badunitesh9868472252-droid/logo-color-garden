@@ -1,7 +1,7 @@
 import markAsset from "@/assets/clipforge-mark.png.asset.json";
 import { cn } from "@/lib/utils";
 
-export function LogoMark({ className }: { className?: string }) {
+export function LogoMark({ className }: { className?: string | undefined }) {
   return (
     <img
       src={markAsset.url}
@@ -14,7 +14,7 @@ export function LogoMark({ className }: { className?: string }) {
   );
 }
 
-export function Logo({ className, markClassName }: { className?: string; markClassName?: string }) {
+export function Logo({ className, markClassName }: { className?: string | undefined; markClassName?: string | undefined }) {
   return (
     <span className={cn("inline-flex items-center gap-2.5", className)}>
       <LogoMark className={markClassName} />

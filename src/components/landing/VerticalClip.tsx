@@ -15,7 +15,7 @@ export function VerticalClip({
   highlight: string;
   score?: number;
   duration?: string;
-  className?: string;
+  className?: string | undefined;
 }) {
   const [before, after] = caption.split(highlight);
   return (
