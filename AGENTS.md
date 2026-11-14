@@ -28,3 +28,8 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## Project rules
+- Brand colors, gradients and glows live only as tokens/utilities in `src/styles.css` (`bg-gradient-brand`, `text-gradient-brand`, `border-gradient-brand`, `bg-aura`); components use those, never raw colors — keeps one source of truth for the logo-derived theme.
+- Logo images are CDN asset pointers in `src/assets/*.asset.json`, rendered via `src/components/brand/Logo.tsx`; the favicon is a separate square PNG in `public/` — pointers can't serve as favicons.
+- Landing page sections live in `src/components/landing/`, composed by `src/routes/index.tsx` — keeps the route file thin.
